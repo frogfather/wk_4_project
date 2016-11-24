@@ -1,0 +1,10 @@
+Minimum viable product:
+
+- create new transaction
+- display all transactions
+- display total expenditure
+- display total expenditure by tag
+
+other options:
+- CRUD
+- route that sends a/c data as JSON
