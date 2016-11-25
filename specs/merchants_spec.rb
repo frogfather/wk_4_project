@@ -9,26 +9,22 @@ class TestMerchant < Minitest::Test
   Merchant.delete_all
   @merchant1 = Merchant.new({"name" => "Sainsbury"})
   @merchant2 = Merchant.new({"name" => "Tesco"})
+  @merchant1.save
+  @merchant2.save
   end
-
+  
   
 
   def test_merchant_name
     assert_equal('Sainsbury', @merchant1.name)
   end
-
-  #def test_merchant_id
-    #only works on if id = 1
-    #run cashbox.sql first!
-  #  @merchant1.save
-   # assert_equal(1, @merchant1.id)
-  #end
-
-  def test_select_all
-  @merchant1.save 
-  @merchant2.save
-  merchants = Merchant.all
+ 
+  def test_update
+    @merchant1.name = "Cabbage"
+    @merchant1.update
+    assert_equal("Cabbage",@merchant1.name)
   end
-
+ 
+ 
 
 end
