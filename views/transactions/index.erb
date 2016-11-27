@@ -1,0 +1,19 @@
+<h1>Transactions</h1>
+
+<% for transaction in @transactions %>
+<p>
+<p>ID: date: merchant_id: category_id, amount</p>
+<%= transaction.id%>
+<%= " " %>
+<%= transaction.trans_date %>
+<%= " " %>
+<%= transaction.merchant.name%>
+<%= " " %>
+<%= transaction.category.name %>
+<%= " " %>
+<%= transaction.amount %>
+<hr>
+<% end %>
+
+
+</p>

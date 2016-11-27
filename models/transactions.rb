@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require_relative('merchants')
 
 class Transaction
 attr_reader :id
@@ -18,9 +19,29 @@ attr_accessor :trans_date, :amount, :merchant_id, :category_id
     @id = SqlRunner.run(sql)[0]['id'].to_i
   end
 
+  def self.all
+    sql = "SELECT * FROM transactions;"
+    transactions = SqlRunner.run(sql)
+    result = transactions.map{|transaction| Transaction.new(transaction)}
+    return result
+  end
+
+
   def update
     sql = "UPDATE transactions SET trans_date = '#{@trans_date}', amount = #{@amount}, merchant_id = #{@merchant_id}, category_id = #{@category_id};"
       SqlRunner.run(sql)
+  end
+
+  def merchant
+    sql = "SELECT * FROM merchants WHERE merchants.id = #{@merchant_id};"
+    result = SqlRunner.run(sql)
+    return Merchant.new(result.first)
+  end
+
+  def category
+    sql = "SELECT * FROM categories WHERE categories.id = #{@category_id};"
+    result = SqlRunner.run(sql)
+    return Category.new(result.first)    
   end
 
   def self.delete_all
