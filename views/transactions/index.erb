@@ -1,19 +1,41 @@
-<h1>Transactions</h1>
-
-<% for transaction in @transactions %>
-<p>
-<p>ID: date: merchant_id: category_id, amount</p>
-<%= transaction.id%>
-<%= " " %>
-<%= transaction.trans_date %>
-<%= " " %>
-<%= transaction.merchant.name%>
-<%= " " %>
-<%= transaction.category.name %>
-<%= " " %>
-<%= transaction.amount %>
-<hr>
-<% end %>
 
 
+<div class="main main--display">
+<div>
+<p class="btn">
+  <a href="/transactions/new">New transaction</a>
 </p>
+
+</div>
+<table class="transactions">
+<tr>
+  <th>Date</th>
+  <th>Merchant</th>
+  <th>Category</th>
+  <th>Amount</th>
+  <th>&nbsp;</th>
+</tr>
+  <% for transaction in @transactions %>
+  <tr>
+  <td>
+  <%= transaction.trans_date %>
+  </td>
+  <td>
+  <%= transaction.merchant.name%>
+  </td>
+  <td>
+  <%= transaction.category.name %>
+  </td>
+  <td>
+  <%= "£"+transaction.amount.to_s %>
+  </td> 
+  <td>
+  <a href ="/transactions/<%= transaction.id %>">view</a>
+  <a href ="/transations/<%= transaction.id %>/edit">edit</a>
+
+  </td>   
+  </tr>
+  <% end %>
+</table>
+</div>
+

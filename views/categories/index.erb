@@ -1,13 +1,11 @@
 <h1>Categories</h1>
 
-<% for category in @categories %>
-<p>
-
-<%= category.id%>
-<%= " "%>
-<%= category.name %>
-<hr>
-<% end %>
-
-
-</p>
+<ul>
+  <% for category in @categories %>
+  <li>
+  <p>
+  <%= category.name %>
+  </p>    
+  </li>
+  <% end %>
+</ul>

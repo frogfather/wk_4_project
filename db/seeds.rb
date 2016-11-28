@@ -24,3 +24,7 @@ category3.save
 transaction1 = Transaction.new({"trans_date" => "11/25/2016", "amount" => "23.43", "merchant_id" => merchant1.id, "category_id" => category1.id})
 transaction1.save
 
+transaction2 = Transaction.new({"trans_date" => "11/28/2016", "amount" => "13.43", "merchant_id" => merchant2.id, "category_id" => category2.id})
+transaction2.save
+
+

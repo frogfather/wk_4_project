@@ -1,0 +1,75 @@
+body {
+  font-family: 'Arial', 'Courier'
+}
+
+h1 {
+margin-left: 25px
+}
+ul {
+  font-size: 18pt;
+}
+
+.title
+{
+ display: flex;
+ font-family: "Arial";
+ font-size:60px;
+ font-variant: small-caps;
+ color: lightblue;
+ align-items: center;
+ justify-content: space-around;
+ border-style: solid;
+ border-color: lightblue; 
+}
+.container
+{
+  display: flex;
+  font-family: "Arial";
+  font-size:36px;
+  font-variant: small-caps;
+  align-items: center;
+  justify-content: space-around;
+  border-style: solid;
+  border-top-style: none;
+  border-color: lightblue;
+}
+
+.main
+{
+  display: flex;
+  font-size:36px;
+  font-variant: small-caps;
+  align-items: center;
+  justify-content: space-around;
+}
+
+table.transactions
+{
+  text-align: left;
+}
+
+.new_trans
+{
+display: flex;
+border-style: solid;
+border-color: red;
+flex-direction: column;
+align-items: left;
+padding-left: 20px;
+}
+
+.new_trans select{
+  font-size: 24px;
+}
+
+input[type="text"], input[type="date"]
+{
+ font-size: 24px; 
+}
+
+input[type="submit"]
+{
+  color: red;
+  width: 200px;
+  font-size: 20px;
+}

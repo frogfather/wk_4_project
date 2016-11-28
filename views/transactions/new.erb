@@ -1,0 +1,47 @@
+<div class="new_trans">
+ 
+<p><label>
+  Date:
+  <input type="date" name="trans_date" 
+  value = "<%= Date.today  %>"/>
+</label>
+</p>
+
+  <p>
+    <label>
+    Merchant:
+      <select name="merchant_id">
+        <option selected disabled value="-1">Select ---  
+        </option>
+        
+        <% for merchant in @merchants %>
+        <option value="<%= merchant.id %>"><%= merchant.name %></option>
+        <% end %>
+      </select>
+    </label>
+  </p>
+
+  <p>
+    <label>
+    Category:
+      <select name="category_id">
+      <option selected disabled value="-1">Select ---  
+      </option>
+
+        <% for category in @categories %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+        <% end %> 
+      </select>
+    </label>
+  </p>
+
+  <p><label>
+    Amount:
+    <input type="text" name="amount" 
+    value = "0.00"/>
+  </label>
+  </p>
+ 
+ <input type="submit" value="Add"/>
+
+</div>
