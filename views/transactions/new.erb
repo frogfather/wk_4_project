@@ -1,47 +1,47 @@
-<div class="new_trans">
- 
-<p><label>
-  Date:
-  <input type="date" name="trans_date" 
-  value = "<%= Date.today  %>"/>
-</label>
-</p>
-
+<form action="/transactions" method="post" id="new">
   <p>
-    <label>
-    Merchant:
-      <select name="merchant_id">
-        <option selected disabled value="-1">Select ---  
-        </option>
-        
-        <% for merchant in @merchants %>
-        <option value="<%= merchant.id %>"><%= merchant.name %></option>
-        <% end %>
-      </select>
+    <label for="trans_date">
+      Date:
     </label>
+    <input type="date" id="trans_date" name="trans_date" 
+    value = "<%= Date.today  %>"/>
   </p>
 
   <p>
-    <label>
-    Category:
-      <select name="category_id">
+    <label for="merchant_id">
+      Merchant:
+    </label>
+    <select name="merchant_id" id="merchant_id">
       <option selected disabled value="-1">Select ---  
       </option>
 
-        <% for category in @categories %>
-        <option value="<%= category.id %>"><%= category.name %></option>
-        <% end %> 
-      </select>
+      <% for merchant in @merchants %>
+      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% end %>
+    </select>
+  </p>
+
+  <p>
+    <label for="category_id">
+      Category:
     </label>
+    <select id="category_id" name="category_id">
+      <option selected disabled value="-1">Select ---  
+      </option>
+
+      <% for category in @categories %>
+      <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %> 
+    </select>
   </p>
 
-  <p><label>
+  <p>
+  <label for="amount" >
     Amount:
-    <input type="text" name="amount" 
-    value = "0.00"/>
   </label>
-  </p>
- 
- <input type="submit" value="Add"/>
+  <input type="text" name="amount" id="amount" 
+  value = "0.00"/>
+</p>
 
-</div>
+<input type="submit" value="Add" />
+</form>

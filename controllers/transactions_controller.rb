@@ -19,7 +19,7 @@ get '/transactions/new' do
 end
 
 post '/transactions' do
-transaction = Transaction.new()
-transaction.post
+transaction = Transaction.new(params)
+transaction.save
 redirect to ("/transactions")
 end
