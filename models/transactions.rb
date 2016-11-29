@@ -25,6 +25,27 @@ attr_accessor :trans_date, :amount, :merchant_id, :category_id
     result = Transaction.new(transaction.first)
     return result
   end
+
+  def self.find_filtered(cat_id,merch_id)
+    if ((cat_id != 0) && (merch_id !=0))
+    sql = "SELECT * FROM transactions WHERE merchant_id = #{merch_id} AND category_id = #{cat_id};"
+    elsif cat_id == 0
+    sql = "SELECT * FROM transactions WHERE merchant_id = #{merch_id};"
+    elsif merch_id == 0
+    sql = "SELECT * FROM transactions WHERE  category_id = #{cat_id};"
+    end
+    transactions = SqlRunner.run(sql)
+    result = transactions.map{|transaction| Transaction.new(transaction)}
+    return result
+  end
+  
+  def self.find_total(transactions)
+    sum = 0
+    if transactions[0] != nil
+    transactions.each{|transaction| sum += transaction.amount}
+    end
+    return sum.round(2)  
+  end
   
   def self.all
     sql = "SELECT * FROM transactions;"

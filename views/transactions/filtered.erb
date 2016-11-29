@@ -1,11 +1,10 @@
-
-
 <div class="main main--display">
 
 <div>
 <p class="btn">
   <a href="/transactions/new">New transaction</a>
 </p>
+
 
 </div>
 <table class="transactions">
@@ -27,7 +26,7 @@
   </a>
   </td>
   <td>
-  <a href="transactions/categories/<%= transaction.category_id%>">
+  <a href="/transactions/categories/<%= transaction.category_id%>">
   <%= transaction.category.name %>
   </a>
   </td>

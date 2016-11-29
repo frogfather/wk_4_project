@@ -1,9 +1,11 @@
 .btn{
+ height: 40px;
  background-color: #6495ED;
  padding: 10px;
 }
 
 .btn:hover {
+  
   background-color: #4881ea;
 }
 

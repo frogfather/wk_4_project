@@ -4,8 +4,8 @@ require_relative('../models/transactions.rb')
 require ('pry-byebug')
 
 get '/transactions' do
-  #binding.pry
   @transactions = Transaction.all
+  @total = Transaction.find_total(@transactions)
   if @transactions[0] != nil
   erb(:"transactions/index")
 else erb(:"transactions/none")
@@ -18,7 +18,26 @@ get '/transactions/new' do
   erb(:"transactions/new")
 end
 
+get '/transactions/categories/:id' do
+  #very similar to view page 
+  #get only transactons for this cat
+  #binding.pry
+  @transactions = Transaction.find_filtered(params[:id],0)
+  @total = Transaction.find_total(@transactions)
+  erb(:"transactions/filtered")
+end
+
+get '/transactions/merchants/:id' do
+  #very similar to view page 
+  #get only transactons for this cat
+  @transactions = Transaction.find_filtered(0,params[:id])
+  @total = Transaction.find_total(@transactions)
+  erb(:"transactions/filtered")
+end
+
+
 post '/transactions' do
+  #binding.pry
 transaction = Transaction.new(params)
 transaction.save
 redirect to ("/transactions")
