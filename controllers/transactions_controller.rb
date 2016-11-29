@@ -23,3 +23,15 @@ transaction = Transaction.new(params)
 transaction.save
 redirect to ("/transactions")
 end
+
+get '/transactions/:id/edit' do
+  @merchants = Merchant.all()
+  @categories = Category.all() 
+  @transaction = Transaction.find(params[:id])
+  erb(:"/transactions/edit")
+end
+
+post '/transactions/:id' do
+  Transaction.update(params)
+  redirect to ("/transactions")
+end

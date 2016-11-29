@@ -48,6 +48,24 @@ table.transactions
   text-align: left;
 }
 
+.foot
+{
+  display:flex;
+  border-style: solid;
+  border-color: red;
+  justify-content: flex-end;
+  padding-right: 160px;
+  font-size: 36px;
+}
+
+.foot input[type="text"]
+{
+  text-align: right;
+  padding-right: 20px;
+  font-size: 36px;
+  width: 140px;
+}
+
 #new {
   margin-left: 20px;
 }
@@ -74,3 +92,5 @@ input[type="submit"]
   font-size: 20px;
   -webkit-appearance: none;
 }
+
+

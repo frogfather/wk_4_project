@@ -1,0 +1,54 @@
+<form action="/transactions/<%= @transaction.id %>" method="post">
+
+  <p>
+    <label for="trans_date">
+      Date:
+    </label>
+    <input type="date" id="trans_date" name="trans_date" 
+    value = "<%= @transaction.trans_date  %>"/>
+  </p>
+
+  <p>
+    <label for="merchant_id">
+      Merchant:
+    </label>
+    <select name="merchant_id" id="merchant_id">
+
+      <% for merchant in @merchants %>
+        <% if merchant.id == @transaction.merchant_id %>
+        <option selected = "selected" value= "<%=merchant.id %>" ><%= merchant.name %>      
+        </option>
+        <% else %>
+        <option value="<%= merchant.id %>"><%= merchant.name %></option>
+        <%end%>
+      <% end %>
+    </select>
+  </p>
+
+  <p>
+    <label for="category_id">
+      Category:
+    </label>
+    <select id="category_id" name="category_id">
+      <% for category in @categories %>
+        <% if category.id == @transaction.category_id %>
+        <option selected = "selected" value= "<%=category.id %>" ><%= category.name %>
+          </option>
+          <%else%>
+          <option value="<%= category.id %>"><%= category.name %></option>
+        <%end%>
+      <% end %> 
+      value = @transaction.category.id
+    </select>
+  </p>
+
+  <p>
+  <label for="amount" >
+    Amount:
+  </label>
+  <input type="text" name="amount" id="amount" 
+  value = <%= @transaction.amount %> >
+</p>
+
+<input type="submit" value="Edit" />
+</form>

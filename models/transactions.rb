@@ -19,6 +19,13 @@ attr_accessor :trans_date, :amount, :merchant_id, :category_id
     @id = SqlRunner.run(sql)[0]['id'].to_i
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM transactions WHERE id = #{id};"
+    transaction = SqlRunner.run(sql)
+    result = Transaction.new(transaction.first)
+    return result
+  end
+  
   def self.all
     sql = "SELECT * FROM transactions;"
     transactions = SqlRunner.run(sql)
@@ -27,8 +34,8 @@ attr_accessor :trans_date, :amount, :merchant_id, :category_id
   end
 
 
-  def update
-    sql = "UPDATE transactions SET trans_date = '#{@trans_date}', amount = #{@amount}, merchant_id = #{@merchant_id}, category_id = #{@category_id};"
+  def self.update(options)
+    sql = "UPDATE transactions SET trans_date = '#{options['trans_date']}', amount = #{options['amount']}, merchant_id = #{options['merchant_id']}, category_id = #{options['category_id']} where id = #{options['id']};"
       SqlRunner.run(sql)
   end
 

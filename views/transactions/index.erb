@@ -15,6 +15,7 @@
   <th>Amount</th>
   <th>&nbsp;</th>
 </tr>
+  <% @sum = 0 %>
   <% for transaction in @transactions %>
   <tr>
   <td>
@@ -27,11 +28,16 @@
   <%= transaction.category.name %>
   </td>
   <td>
+  <% @sum += transaction.amount%>
+  <%if transaction.amount < 10%>
+  <%= "£_"+transaction.amount.to_s %>
+  <%else%>
   <%= "£"+transaction.amount.to_s %>
+  <%end%>
   </td> 
   <td>
   <a href ="/transactions/<%= transaction.id %>">view</a>
-  <a href ="/transations/<%= transaction.id %>/edit">edit</a>
+  <a href ="/transactions/<%= transaction.id %>/edit">edit</a>
 
   </td>   
   </tr>
@@ -39,3 +45,17 @@
 </table>
 </div>
 
+<% @sum.round(2) %>  
+
+
+<div class="foot">
+  <p>
+  <label>
+  Total:
+  <input disabled type="text" id="total"
+    value = <%=@sum%>/>
+  </label>
+
+  </p>
+  
+</div>
