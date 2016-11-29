@@ -15,11 +15,13 @@ ul {
  font-family: "Arial";
  font-size:60px;
  font-variant: small-caps;
- color: lightblue;
+ color: #58616a;
+
  align-items: center;
  justify-content: space-around;
  border-style: solid;
- border-color: lightblue; 
+ border-color: #58616a;
+ background-color: #e8f1fa;
 }
 .container
 {
@@ -31,26 +33,40 @@ ul {
   justify-content: space-around;
   border-style: solid;
   border-top-style: none;
-  border-color: lightblue;
+  border-color: #58616a;
+  background-color: #e8f1fa; 
 }
 
 .main
 {
-  /*display: flex;*/
+  display: flex;
   font-size:36px;
   font-variant: small-caps;
   align-items: right;
   justify-content: space-around;
+  background: -webkit-linear-gradient(#e8f1fa,#98b1ca);
+  border-style: solid;
+  border-top-style: none;
+  border-color: #58616a;
+
+}
+
+#filtered
+{
+
+    
 }
 
 table.transactions td.amount
 {
 text-align: right;
 padding-right: 10px;
+
 }
 table.transactions
 {
   text-align: left;
+  color: #48616a;
 }
 
 .foot
@@ -61,10 +77,19 @@ table.transactions
   justify-content: flex-end;
   padding-right: 160px;
   font-size: 36px;
+  background: #98b1ca;
+  border-style: solid;
+  border-top-style: none;
+  border-color: #58616a;
+  color: #58616a;
+
 }
 
 .foot input[type="text"]
 {
+  color: #48616a;
+  background-color: #98b1ca;
+  border-color: #58616a;
   text-align: right;
   font-weight: bold;
   padding-right: 20px;
@@ -73,7 +98,14 @@ table.transactions
 }
 
 #new {
-  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  border-style: solid;
+  border-top-style: none;
+  border-color: #58616a;  
+  background-color: #e8f1fa;  
 }
 
 #new label {
@@ -85,6 +117,11 @@ table.transactions
   font-size: 24px;
 }
 
+#new select
+{
+  font-size: 26px;
+}
+
 input[type="text"], input[type="date"]
 {
  font-size: 24px; 
@@ -92,11 +129,18 @@ input[type="text"], input[type="date"]
 
 input[type="submit"]
 {
-  color: red;
   width: 200px;
-  padding: 20px;
-  font-size: 20px;
+  height: 70px;
+  margin-left: 80px;
+  text-align: center;
+  font-size: 40px;
+  border-color:  #98a1aa;
+  border-top-color: #e8f1fa;
+  border-left-color: #e8f1fa;
+  background-color: #b8c1ca;
+  color: #586a8a;
   -webkit-appearance: none;
 }
+
 
 
