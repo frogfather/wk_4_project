@@ -1,0 +1,38 @@
+<form class="main" id="view" action="/transactions/<%= @transaction.id %>/delete" method="post">
+
+  <p>
+    <label>
+      Date:
+    </label>
+    <input disabled type="date"
+    value = "<%= @transaction.trans_date  %>"/>
+  </p>
+
+  <p>
+    <label>
+      Merchant:
+    </label>
+    <input disabled type="text"
+    value = <%=@transaction.category.name%> >  </p>
+
+  <p>
+    <label for="category_id">
+      Category:
+    </label>
+    <input disabled type="text" 
+    value = <%=@transaction.category.name%> >
+  </p>
+
+  <p>
+  <label>
+    Amount:
+  </label>
+  <input disabled type="text" name="amount" 
+  value = <%=@transaction.amount.to_s %> >
+</p>
+
+<p class="buttons" id="confirm">
+<input type="submit" value="Confirm" />
+</p>
+
+</form>
