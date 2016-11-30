@@ -55,7 +55,6 @@ ul {
 {
   flex-direction: column; 
   padding-left: 25px; 
-  
 }
 
 
@@ -173,6 +172,19 @@ input[type="submit"]
   background-color: #b8c1ca;
   color: #586a8a;
   -webkit-appearance: none;
+}
+
+.buttons
+{
+display: flex;
+ flex-direction: row;
+}
+
+.buttons #delete
+{
+margin-left: auto;
+margin-right: 80px;
+background-color: darkred;
 }
 
 

@@ -47,8 +47,16 @@
     Amount:
   </label>
   <input type="text" name="amount" id="amount" 
-  value = <%="£"+@transaction.amount.to_s %> >
+  value = <%=@transaction.amount.to_s %> >
 </p>
 
+<p class="buttons">
 <input type="submit" value="Edit" />
+<input type="submit" value="Delete" id="delete" />
+</p>
+
 </form>
+
+</form>
+
+
