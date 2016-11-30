@@ -27,12 +27,12 @@
   </a>
   </td>
   <td>
-  <a href="transactions/categories/<%= transaction.category_id%>">
+  <a href="/transactions/categories/<%= transaction.category_id%>">
   <%= transaction.category.name %>
   </a>
   </td>
   <td class="amount">
-  <%if transaction.amount % 1 == 0 %>
+  <%if (10 * transaction.amount) % 1 == 0 %>
   <%= "£"+ transaction.amount.to_s+'0' %>
   <%else%>
   <%= "£"+transaction.amount.to_s %>

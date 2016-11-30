@@ -1,11 +1,20 @@
-<h1>Merchants</h1>
+<div class="main"> 
 
-<ul>
-  <% for merchant in @merchants %>
-  <li>
-  <p>
-  <%= merchant.name %>
-  </p>    
-  </li>
-  <% end %>
-</ul>
+  <table class="merchants">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>&nbsp;</th>
+    </tr>
+    <% for merchant in @merchants %>
+    <tr>
+      <td>
+      <%= merchant.id %>
+      </td>
+      <td>
+      <%= merchant.name%>
+      </td> 
+    </tr>
+    <% end %> 
+  </table>
+</div>

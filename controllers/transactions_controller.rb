@@ -18,13 +18,20 @@ get '/transactions/new' do
   erb(:"transactions/new")
 end
 
+get '/transactions/:id' do
+  @merchants = Merchant.all()
+  @categories = Category.all()
+  @transaction = Transaction.find(params[:id])
+  erb(:"transactions/view")
+end
+
 get '/transactions/categories/:id' do
   #very similar to view page 
   #get only transactons for this cat
   #binding.pry
   @transactions = Transaction.find_filtered(params[:id],0)
   @total = Transaction.find_total(@transactions)
-  erb(:"transactions/filtered")
+  erb(:"transactions/index")
 end
 
 get '/transactions/merchants/:id' do
@@ -32,7 +39,7 @@ get '/transactions/merchants/:id' do
   #get only transactons for this cat
   @transactions = Transaction.find_filtered(0,params[:id])
   @total = Transaction.find_total(@transactions)
-  erb(:"transactions/filtered")
+  erb(:"transactions/index")
 end
 
 

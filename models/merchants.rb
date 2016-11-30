@@ -15,6 +15,7 @@ class Merchant
     return result
   end
 
+
   def save
     sql = "INSERT INTO merchants (name) VALUES ('#{@name}') returning id;"
     @id = SqlRunner.run(sql)[0]['id'].to_i

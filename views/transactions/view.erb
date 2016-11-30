@@ -1,10 +1,10 @@
-<form class="main" id="view" action="/transactions/<%= @transaction.id %>" method="post">
+<form class="main" id="view">
 
   <p>
-    <label for="trans_date">
+    <label >
       Date:
     </label>
-    <input type="date" id="trans_date" name="trans_date" 
+    <input type="date" name="trans_date" 
     value = "<%= @transaction.trans_date  %>"/>
   </p>
 
@@ -47,8 +47,7 @@
     Amount:
   </label>
   <input type="text" name="amount" id="amount" 
-  value = <%="£"+@transaction.amount.to_s %> >
+  value = <%= @transaction.amount %> >
 </p>
 
-<input type="submit" value="Edit" />
 </form>
