@@ -42,6 +42,8 @@
   <td>
   <a href ="/transactions/<%= transaction.id %>">view</a>
   <a href ="/transactions/<%= transaction.id %>/edit">edit</a>
+  <a href ="/transactions/<%= transaction.id %>/delete">delete</a>
+  
 
   </td>   
   </tr>
@@ -54,7 +56,7 @@
   <label>
   Total:
   <input disabled type="text" id="total"
-    value = <%= @total %>
+    value = <%="£"+ @total.to_s %>
   </label>
 
   </p>

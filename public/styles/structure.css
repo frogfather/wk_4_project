@@ -40,7 +40,6 @@ ul {
 .main
 {
   display: flex;
-  font-size:36px;
   font-variant: small-caps;
   align-items: right;
   justify-content: space-around;
@@ -57,7 +56,6 @@ ul {
   padding-left: 25px; 
 }
 
-
 table.transactions td.amount
 {
 text-align: right;
@@ -66,6 +64,7 @@ padding-right: 10px;
 }
 table
 {
+  font-size:36px;
   text-align: left;
   color: #48616a;
 }
@@ -98,11 +97,12 @@ th, td {
   text-align: right;
   font-weight: bold;
   padding-right: 20px;
+  margin-right: 100px;
   font-size: 36px;
   width: 140px;
 }
 
-#new {
+#new, #view {
   display: flex;
   flex-direction: column;
   padding-left: 20px;
@@ -177,7 +177,7 @@ input[type="submit"]
 .buttons
 {
 display: flex;
- flex-direction: row;
+flex-direction: row;
 }
 
 .buttons #delete
