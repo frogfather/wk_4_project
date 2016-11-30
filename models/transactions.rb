@@ -28,11 +28,11 @@ attr_accessor :trans_date, :amount, :merchant_id, :category_id
 
   def self.find_filtered(cat_id,merch_id)
     if ((cat_id != 0) && (merch_id !=0))
-    sql = "SELECT * FROM transactions WHERE merchant_id = #{merch_id} AND category_id = #{cat_id};"
+    sql = "SELECT * FROM transactions WHERE merchant_id = #{merch_id} AND category_id = #{cat_id} ORDER by trans_date desc;"
     elsif cat_id == 0
-    sql = "SELECT * FROM transactions WHERE merchant_id = #{merch_id};"
+    sql = "SELECT * FROM transactions WHERE merchant_id = #{merch_id} ORDER by trans_date desc;"
     elsif merch_id == 0
-    sql = "SELECT * FROM transactions WHERE  category_id = #{cat_id};"
+    sql = "SELECT * FROM transactions WHERE  category_id = #{cat_id} ORDER by trans_date desc;"
     end
     transactions = SqlRunner.run(sql)
     result = transactions.map{|transaction| Transaction.new(transaction)}
@@ -48,7 +48,7 @@ attr_accessor :trans_date, :amount, :merchant_id, :category_id
   end
   
   def self.all
-    sql = "SELECT * FROM transactions;"
+    sql = "SELECT * FROM transactions ORDER by trans_date desc;"
     transactions = SqlRunner.run(sql)
     result = transactions.map{|transaction| Transaction.new(transaction)}
     return result
